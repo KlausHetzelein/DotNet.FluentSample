@@ -103,5 +103,28 @@ namespace ApiTests
             Assert.IsTrue(status.Contains("1967"));
             Assert.IsTrue(status.Contains("Julius"));
         }
+
+        [TestMethod]
+        public void UseDisplayAtEveryState()
+        {
+            var birthDate = new DateTime(1967, 3, 8);
+            string status = String.Empty;
+
+            Person.GetsBorn("Julius Caesar", birthDate).
+                DisplayWholeLife(s => status = GetStatus(s)).
+                GetsMarried("First Wife", new DateTime(1992, 3, 5)).
+                DisplayWholeLife(s => status = GetStatus(s)).
+                GetsDivorced(new DateTime(1993, 2, 3)). 
+                DisplayWholeLife(s => status = GetStatus(s)).
+                GetsMarried("Second Wife", new DateTime(1994, 3, 5)).
+                DisplayWholeLife(s => status = GetStatus(s)).
+                GetsWidowed(new DateTime(1995, 2, 3)). 
+                DisplayWholeLife(s => status = GetStatus(s)).
+                Dies(new DateTime(2035, 3, 3)).
+                DisplayWholeLife(s => status = GetStatus(s));
+
+                Assert.IsTrue(status.Contains("1967"));
+            Assert.IsTrue(status.Contains("Julius"));
+        }
     }
 }

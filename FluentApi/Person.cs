@@ -56,11 +56,6 @@ namespace FluentApi
             return this;
         }
 
-        public void DisplayState(Action<string> displayFunction)
-        {
-            displayFunction?.Invoke(GetCurrentState());
-        }
-
         public string GetCurrentState()
         {
             if (_history.Count > 0)
@@ -70,6 +65,11 @@ namespace FluentApi
             }
 
             return String.Empty;
+        }
+
+        public void DisplayState(Action<string> displayFunction)
+        {
+            displayFunction?.Invoke(GetCurrentState());
         }
 
         public void DisplayWholeLife(Action<string> displayFunction)
@@ -97,6 +97,47 @@ namespace FluentApi
                 historyTexts.Append(GetCurrentState());
                 displayFunction(historyTexts.ToString());
             }
+        }
+
+        IAnyPerson IAnyPerson.DisplayState(Action<string> displayFunction)
+        {
+            DisplayState(displayFunction);
+            return this;
+        }
+        IAnyPerson IAnyPerson.DisplayWholeLife(Action<string> displayFunction)
+        {
+            DisplayWholeLife(displayFunction);
+            return this;
+        }
+        IAlivePerson IAlivePerson.DisplayState(Action<string> displayFunction)
+        {
+            DisplayState(displayFunction);
+            return this;
+        }
+        IAlivePerson IAlivePerson.DisplayWholeLife(Action<string> displayFunction)
+        {
+            DisplayWholeLife(displayFunction);
+            return this;
+        }
+        IUnmarriedPerson IUnmarriedPerson.DisplayState(Action<string> displayFunction)
+        {
+            DisplayState(displayFunction);
+            return this;
+        }
+        IUnmarriedPerson IUnmarriedPerson.DisplayWholeLife(Action<string> displayFunction)
+        {
+            DisplayWholeLife(displayFunction);
+            return this;
+        }
+        IMarriedPerson IMarriedPerson.DisplayState(Action<string> displayFunction)
+        {
+            DisplayState(displayFunction);
+            return this;
+        }
+        IMarriedPerson IMarriedPerson.DisplayWholeLife(Action<string> displayFunction)
+        {
+            DisplayWholeLife(displayFunction);
+            return this;
         }
     }
 }
