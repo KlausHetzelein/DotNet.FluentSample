@@ -3,7 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentApi", "FluentApi\FluentApi.csproj", "{3564E86B-ECCA-4841-A80E-B1A000B62C1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C3DEAA5-D5CF-40FE-923A-FE9C25AF15EA}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTests", "ApiTests\ApiTests.csproj", "{A7FBE414-9CCF-4757-97A5-DC73FD168119}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3564E86B-ECCA-4841-A80E-B1A000B62C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3564E86B-ECCA-4841-A80E-B1A000B62C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3564E86B-ECCA-4841-A80E-B1A000B62C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3564E86B-ECCA-4841-A80E-B1A000B62C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FBE414-9CCF-4757-97A5-DC73FD168119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FBE414-9CCF-4757-97A5-DC73FD168119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FBE414-9CCF-4757-97A5-DC73FD168119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FBE414-9CCF-4757-97A5-DC73FD168119}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
