@@ -6,8 +6,6 @@
         {
             switch (@event)
             {
-                case EventInPersonsLife.NotYetBorn:
-                    return "not yet born";
                 case EventInPersonsLife.Birth:
                     return "born";
                 case EventInPersonsLife.Marriage:
@@ -22,12 +20,11 @@
                     return "<unknown?>";
             }
         }
+
         public static string EventAsState(this EventInPersonsLife @event)
         {
             switch (@event)
             {
-                case EventInPersonsLife.NotYetBorn:
-                    return "unborn";
                 case EventInPersonsLife.Birth:
                     return "single";
                 case EventInPersonsLife.Marriage:

@@ -4,7 +4,6 @@ namespace FluentApi
 {
     public enum EventInPersonsLife
     {
-        NotYetBorn = 0,
         Birth,
         Marriage,
         Divorce,
@@ -20,5 +19,4 @@ namespace FluentApi
 
         public string AdditionalInfo { get; set; } = String.Empty;
     }
-
 }

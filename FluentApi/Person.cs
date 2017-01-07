@@ -19,7 +19,7 @@ namespace FluentApi
                     return _history[0].When;
                 }
 
-                return new DateTime(1900, 1, 1);
+                return new DateTime(1, 1, 1);
             }
             set
             {
