@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventInPersonsLife.cs" />
+    <Compile Include="IPersonsStateTransitions.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="EventInPersonsLifeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FluentApi
 {
-    public class Person
+    public class Person : IAnyPerson, IAlivePerson, IUnmarriedPerson, IMarriedPerson
     {
         List<EventInPersonsLifeData> _history = new List<EventInPersonsLifeData>();
 
@@ -27,39 +27,38 @@ namespace FluentApi
             }
         }
 
-        public static Person GetsBorn(string name, DateTime birthDate)
+        public static IUnmarriedPerson GetsBorn(string name, DateTime birthDate)
         {
             return new Person { Name = name, Birth = birthDate };
         }
 
-        public Person Dies(DateTime when)
+        public IAnyPerson Dies(DateTime when)
         {
             _history.Add(new EventInPersonsLifeData { What = EventInPersonsLife.Death, When = when });
             return this;
         }
 
-        public Person GetsMarried(string whom, DateTime when)
+        public IMarriedPerson GetsMarried(string whom, DateTime when)
         {
             _history.Add(new EventInPersonsLifeData { What = EventInPersonsLife.Marriage, When = when, AdditionalInfo = whom });
             return this;
         }
 
-        public Person GetsDivorced(DateTime when)
+        public IUnmarriedPerson GetsDivorced(DateTime when)
         {
             _history.Add(new EventInPersonsLifeData { What = EventInPersonsLife.Divorce, When = when });
             return this;
         }
 
-        public Person GetsWidowed(DateTime when)
+        public IUnmarriedPerson GetsWidowed(DateTime when)
         {
             _history.Add(new EventInPersonsLifeData { What = EventInPersonsLife.Widowhood, When = when });
             return this;
         }
 
-        public Person DisplayState(Action<string> displayFunction)
+        public void DisplayState(Action<string> displayFunction)
         {
             displayFunction?.Invoke(GetCurrentState());
-            return this;
         }
 
         public string GetCurrentState()
@@ -73,7 +72,7 @@ namespace FluentApi
             return String.Empty;
         }
 
-        public Person DisplayWholeLife(Action<string> displayFunction)
+        public void DisplayWholeLife(Action<string> displayFunction)
         {
             if (null != displayFunction)
             {
@@ -98,8 +97,6 @@ namespace FluentApi
                 historyTexts.Append(GetCurrentState());
                 displayFunction(historyTexts.ToString());
             }
-
-            return this;
         }
     }
 }
